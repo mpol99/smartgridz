@@ -1,1 +1,9 @@
 #Hallo
+import pandas as pd
+import pypsa
+
+
+pv_generation = pd.read_csv('generation.csv')
+load_curve = pd.read_csv('verbrauch.csv')
+
+network = pypsa.Network()
