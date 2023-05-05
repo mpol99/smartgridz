@@ -3,7 +3,26 @@ import pandas as pd
 import pypsa
 
 
-pv_generation = pd.read_csv('generation.csv')
-load_curve = pd.read_csv('verbrauch.csv')
+pv_generation = pd.read_csv('generation.csv', delimiter=";", decimal=",")
+consumption_data = pd.read_csv("consumption.csv", delimiter=";", decimal=",")
 
 network = pypsa.Network()
+
+network.add("Bus",
+            "Consumer",
+            carrier="load",
+            p_set=0.0,
+            v_nom=230.0)
+            
+for timestamp, consumption in consumption_data["Consumption"].iteritems():
+    network.add("Load",
+                f"Consumer_{timestamp.strftime('%Y%m%d%H%M')}",
+                bus="Consumer",
+                p_set=consumption/1000.0)  # Convert from kW to MW
+                
+import matplotlib.pyplot as plt
+
+plt.plot(consumption_data["Consumption"].index, consumption_data["Consumption"]/1000.0)  # Convert from kW to MW
+plt.xlabel("Time")
+plt.ylabel("Power Demand (MW)")
+plt.show()
