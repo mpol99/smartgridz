@@ -26,3 +26,20 @@ plt.plot(consumption_data["Consumption"].index, consumption_data["Consumption"]/
 plt.xlabel("Time")
 plt.ylabel("Power Demand (MW)")
 plt.show()
+
+####Neu####
+
+import pypsa
+import pandas as pd
+network = pypsa.Network()
+start = pd.Timestamp('2022-01-01', tz='utc')
+end = pd.Timestamp('2022-01-02', tz='utc')
+time_index = pd.date_range(start=start, end=end, freq='H')
+# Load data from a CSV file
+load_data = pd.read_csv('verbrauch.csv', parse_dates=['timestamp'], index_col='timestamp', usecols=['timestamp', 'load', 'bus'])
+network.add("Bus", "Consumer")
+for _, row in load_data.iterrows():
+    load_name = str(row.name)
+    network.add("Load", load_name)
+    network.loads.loc[load_name, "bus"] = row['bus']
+    network.loads.loc[load_name, "p_set"] = row['load']
