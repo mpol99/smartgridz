@@ -43,3 +43,49 @@ for _, row in load_data.iterrows():
     network.add("Load", load_name)
     network.loads.loc[load_name, "bus"] = row['bus']
     network.loads.loc[load_name, "p_set"] = row['load']
+    
+    
+
+
+###Erstellen des Netzwerks über Ordner###
+#Dazu muss der Ordner "example" heruntergeladen werden und in das aktuelle Verzeichnis verschoben werden. 
+Falls ihr die XML-Dateien bearbeiten wollt müsst ihr in den Systemsteuerungen unter "Region" das Listentrennzeichen auf ein Komma stellen.#
+
+import pypsa
+import numpy as np
+network = pypsa.Network()
+network.import_from_csv_folder('example')
+
+import matplotlib.pyplot as plt
+#Plotten von Buses und Links
+plt.scatter(network.buses.x, network.buses.y, marker='o', color='r', label='Buses')
+for bus in network.buses.index:
+    x = network.buses.loc[bus, 'x']
+    y = network.buses.loc[bus, 'y']
+    plt.text(x, y, bus, ha='right', va='bottom')
+    
+for link in network.links.index:
+    bus0 = network.links.loc[link, 'bus0']
+    bus1 = network.links.loc[link, 'bus1']
+    x = [network.buses.loc[bus0, 'x'], network.buses.loc[bus1, 'x']]
+    y = [network.buses.loc[bus0, 'y'], network.buses.loc[bus1, 'y']]
+    plt.plot(x, y, color='b', label='Links')
+
+#Plotten des zeitlich veränderlichen Vebrauchs der sechs Verbraucher
+time_index = network.snapshots
+consumers = network.loads.index
+
+for consumer in consumers:
+    consumption = network.loads_t.p_set[consumer]
+    plt.plot(time_index, consumption, label=consumer)
+
+plt.show()
+
+
+#Plotten der zeitlich veränderlichen Erzeugung der zwei Generatoren
+time_index = network.snapshots
+generators = network.generators.index
+
+for generator in generators:
+    output = network.generators_t.p_max_pu[generator]
+    plt.plot(time_index, output, label=generator)
