@@ -1,0 +1,3 @@
+name,bus,p_nom,p_nom_extendable
+Solar,s,50,True
+Net,n,50,True
