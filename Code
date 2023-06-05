@@ -89,3 +89,27 @@ generators = network.generators.index
 for generator in generators:
     output = network.generators_t.p_max_pu[generator]
     plt.plot(time_index, output, label=generator)
+
+
+###Aktueller Code###
+import pypsa
+import numpy as np
+import matplotlib.pyplot as plt
+
+network = pypsa.Network()
+
+network.import_from_csv_folder('example')
+
+network.loads_t.p_set.plot()
+
+network.generators_t.p_max_pu.plot()
+
+import folium
+m = folium.Map(location=(52.5443, 11.4036), zoom_start=15)
+for index, row in network.buses.iterrows():
+    bus = index
+    coordinates = (network.buses.x[index], network.buses.y[index])
+    popup_text = "Hallo"
+    folium.Marker(location=coordinates, tooltip=bus, popup=folium.Popup(popup_text, max_width=200)).add_to(m)
+
+m
