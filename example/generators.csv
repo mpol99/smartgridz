@@ -1,4 +1,4 @@
 name,bus,p_nom,p_nom_extendable
-Solar,s,50,True
-Net,n,50,True
+Solar,s,1540.332,True
+Net,n,100000,True
 Biogas,b,600,True
