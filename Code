@@ -106,11 +106,90 @@ network.generators_t.p_max_pu.plot()
 
 import folium
 m = folium.Map(location=(52.5443, 11.4036), zoom_start=15)
-for index, row in network.buses.iterrows():
-    bus = index
-    coordinates = (network.buses.x[index], network.buses.y[index])
-    popup_text = "Hallo"
-    folium.Marker(location=coordinates, tooltip=bus, popup=folium.Popup(popup_text, max_width=200)).add_to(m)
+
+folium.Marker(
+    location=[n.buses.loc["s", "x"],n.buses.loc["s", "y"]],
+    tooltip="Photovoltaikanlage",
+    popup=n.generators.p_nom["Solar"],
+    icon=folium.Icon(color="green", icon='solar-panel' ,prefix='fa'),
+).add_to(m)
+
+folium.Marker(
+    location=[n.buses.loc["b", "x"],n.buses.loc["b", "y"]],
+    tooltip="Biogasanlage",
+    popup="Some Other Location",
+    icon=folium.Icon(color="green", icon='seedling' ,prefix='fa'),
+).add_to(m)
+
+folium.Marker(
+    location=[n.buses.loc["n", "x"],n.buses.loc["n", "y"]],
+    tooltip="Netzanschluss",
+    popup="Some Other Location",
+    icon=folium.Icon(color="green", icon='bolt' ,prefix='fa'),
+).add_to(m)
+
+folium.Marker(
+    location=[n.buses.loc["g", "x"],n.buses.loc["g", "y"]],
+    tooltip="Zentralpunkt",
+    popup="Some Other Location",
+    icon=folium.Icon(color="red", icon='power-off' ,prefix='fa'),
+).add_to(m)
+
+folium.Marker(
+    location=[n.buses.loc["v1", "x"],n.buses.loc["v1", "y"]],
+    tooltip="Verbraucher 1",
+    popup="Some Other Location",
+    icon=folium.Icon(color="blue", icon='industry' ,prefix='fa'),
+).add_to(m)
+
+folium.Marker(
+    location=[n.buses.loc["v2", "x"],n.buses.loc["v2", "y"]],
+    tooltip="Verbraucher 2",
+    popup="Some Other Location",
+    icon=folium.Icon(color="blue", icon='industry' ,prefix='fa'),
+).add_to(m)
+
+folium.Marker(
+    location=[n.buses.loc["v3", "x"],n.buses.loc["v3", "y"]],
+    tooltip="Verbraucher 3",
+    popup="Some Other Location",
+    icon=folium.Icon(color="blue", icon='industry' ,prefix='fa'),
+).add_to(m)
+
+folium.Marker(
+    location=[n.buses.loc["v4", "x"],n.buses.loc["v4", "y"]],
+    tooltip="Verbraucher 4",
+    popup="Some Other Location",
+    icon=folium.Icon(color="blue", icon='industry' ,prefix='fa'),
+).add_to(m)
+
+folium.Marker(
+    location=[n.buses.loc["v5", "x"],n.buses.loc["v5", "y"]],
+    tooltip="Verbraucher 5",
+    popup="Some Other Location",
+    icon=folium.Icon(color="blue", icon='industry' ,prefix='fa'),
+).add_to(m)
+
+folium.Marker(
+    location=[n.buses.loc["v6", "x"],n.buses.loc["v6", "y"]],
+    tooltip="Verbraucher 6",
+    popup="Some Other Location",
+    icon=folium.Icon(color="blue", icon='industry' ,prefix='fa'),
+).add_to(m)
+
+folium.Marker(
+    location=[n.buses.loc["v7", "x"],n.buses.loc["v7", "y"]],
+    tooltip="Verbraucher 7",
+    popup="Some Other Location",
+    icon=folium.Icon(color="blue", icon='industry' ,prefix='fa'),
+).add_to(m)
+
+folium.Marker(
+    location=[n.buses.loc["v8", "x"],n.buses.loc["v8", "y"]],
+    tooltip="Verbraucher 8",
+    popup="Some Other Location",
+    icon=folium.Icon(color="blue", icon='industry' ,prefix='fa'),
+).add_to(m)
 
 m
 
