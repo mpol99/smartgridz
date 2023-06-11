@@ -1,9 +1,9 @@
 name,bus,sign
-Verbraucher 1,v1,-1
-Verbraucher 2,v2,-1
-Verbraucher 3,v3,-1
-Verbraucher 4,v4,-1
-Verbraucher 5,v5,-1
-Verbraucher 6,v6,-1
-Verbraucher 7,v7,-1
-Verbraucher 8,v8,-1
+v1,v1,-1
+v2,v2,-1
+v3,v3,-1
+v4,v4,-1
+v5,v5,-1
+v6,v6,-1
+v7,v7,-1
+v8,v8,-1

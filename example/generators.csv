@@ -1,4 +1,4 @@
-name,bus,p_nom,p_nom_extendable
-Solar,s,1540.332,True
-Net,n,100000,True
-Biogas,b,600,True
+name,bus,capital_cost,marginal_cost,p_nom,p_nom_extendable,p_nom_min
+Solar,s,2793.651603,5,1540.332,True,100
+Biogas,b,196.615168,10,600,True,600
+Net,n,100000,20,10000,True,100
