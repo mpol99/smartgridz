@@ -113,3 +113,6 @@ for index, row in network.buses.iterrows():
     folium.Marker(location=coordinates, tooltip=bus, popup=folium.Popup(popup_text, max_width=200)).add_to(m)
 
 m
+
+###Dieser Befehl optimiert das Netzwerk (Achtung bei dieser Datengröße dauert die Optimierung -> lieber anderen Ordner mit Werten für einen Tag nutzen)
+n.optimize()
