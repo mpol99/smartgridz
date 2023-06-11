@@ -114,5 +114,5 @@ for index, row in network.buses.iterrows():
 
 m
 
-###Dieser Befehl optimiert das Netzwerk (Achtung bei dieser Datengröße dauert die Optimierung -> lieber anderen Ordner mit Werten für einen Tag nutzen)
+###Dieser Befehl optimiert das Netzwerk (Achtung bei dieser Datengröße dauert die Optimierung -> lieber anderen Ordner "Test" mit Werten für nur einen Tag nutzen)###
 n.optimize()
