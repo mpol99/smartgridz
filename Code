@@ -105,3 +105,8 @@ m
 
 ###Dieser Befehl optimiert das Netzwerk (Achtung bei dieser Datengröße dauert die Optimierung -> lieber anderen Ordner "Test" mit Werten für nur einen Tag nutzen)###
 n.optimize()
+
+gesamtverbrauch = n.loads_t.p.sum().sum()
+eigenverbrauch = n.generators_t.p.sum().sum()-n.generators_t.p["Netv"].sum()
+autarkiegrad = eigenverbrauch / gesamtverbrauch * 100  # In Prozent umrechnen
+autarkiegrad
