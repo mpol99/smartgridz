@@ -1,7 +1,7 @@
 name,bus,capital_cost,marginal_cost,p_nom,p_nom_extendable,p_nom_min,p_nom_max,sign
-Solar,s,0,0,1540.332,True,100,10000,1
-SolarOst,s,0,0,10000,True,100,10000,1
-SolarWest,s,0,0,10000,True,100,10000,1
-Biogas,b,196.615168,0,300,False,600,1000,1
-Nete,n,100000,30,10000,False,100,1000,1
-Netv,n,100000,-8,1,False,100,1000,-1
+Solar,s,27.5,0,1540.332,True,100,4200,1
+SolarOst,s,30,0,0,True,0,400,1
+SolarWest,s,30,0,0,True,0,400,1
+Nete,n,100000,0.24,100000,False,100,1000,1
+Netv,n,100000,-0.08,100000,False,100,1000,-1
+AgriSolar,s,30.8,0,10000,True,0,6882,1
