@@ -1,112 +1,155 @@
-
-
-
-###Aktueller Code###
 import pypsa
 import numpy as np
 import matplotlib.pyplot as plt
+import pandas as pd
 
-network = pypsa.Network()
+n = pypsa.Network()
 
-network.import_from_csv_folder('example')
+n.import_from_csv_folder('test')
 
-network.loads_t.p_set.plot()
+#n.loads_t.p_set.plot()
 
-network.generators_t.p_max_pu.plot()
+#n.generators_t.p_max_pu.plot()
+
+n.optimize()
 
 import folium
-m = folium.Map(location=(52.5443, 11.4036), zoom_start=15)
+m = folium.Map(location=(52.5443, 11.4036), zoom_start=14, control_scale=True)
+
+import json
+import pandas as pd
+import requests
+
+url = (
+    "https://raw.githubusercontent.com/python-visualization/folium/main/examples/data"
+)
+#vis1 = json.loads("data.json")
+vis2 = json.loads(requests.get(f"{url}/vis2.json").text)
+with open("data.json", "r") as f:
+    vis1 = json.load(f)
 
 folium.Marker(
-    location=[n.buses.loc["s", "x"],n.buses.loc["s", "y"]],
+    location=[n.buses.loc["Dachsolaranlage", "x"],n.buses.loc["Dachsolaranlage", "y"]],
     tooltip="Photovoltaikanlage",
-    popup=n.generators.p_nom["Solar"],
+    popup=n.generators.p_nom["Dachsolaranlage"],
     icon=folium.Icon(color="green", icon='solar-panel' ,prefix='fa'),
 ).add_to(m)
 
+trail_coordinates = [
+    (52.54412931110482, 11.402650206775505),
+    (52.54398530204919, 11.402613061973165),
+    (n.buses.loc["Zentralpunkt", "x"],n.buses.loc["Zentralpunkt", "y"]),
+]
+
+folium.PolyLine(trail_coordinates, tooltip="PV-Anschluss").add_to(m)
+
 folium.Marker(
-    location=[n.buses.loc["b", "x"],n.buses.loc["b", "y"]],
+    location=[n.buses.loc["Agrisolaranlage", "x"],n.buses.loc["Agrisolaranlage", "y"]],
     tooltip="Biogasanlage",
     popup="Some Other Location",
     icon=folium.Icon(color="green", icon='seedling' ,prefix='fa'),
 ).add_to(m)
 
 folium.Marker(
-    location=[n.buses.loc["n", "x"],n.buses.loc["n", "y"]],
+    location=[n.buses.loc["Netzanschluss", "x"],n.buses.loc["Netzanschluss", "y"]],
     tooltip="Netzanschluss",
     popup="Some Other Location",
     icon=folium.Icon(color="green", icon='bolt' ,prefix='fa'),
 ).add_to(m)
 
 folium.Marker(
-    location=[n.buses.loc["g", "x"],n.buses.loc["g", "y"]],
+    location=[n.buses.loc["Zentralpunkt", "x"],n.buses.loc["Zentralpunkt", "y"]],
     tooltip="Zentralpunkt",
     popup="Some Other Location",
     icon=folium.Icon(color="red", icon='power-off' ,prefix='fa'),
 ).add_to(m)
 
 folium.Marker(
-    location=[n.buses.loc["v1", "x"],n.buses.loc["v1", "y"]],
-    tooltip="Verbraucher 1",
+    location=[n.buses.loc["Stromspeicher", "x"],n.buses.loc["Stromspeicher", "y"]],
+    tooltip="Stromspeicher",
     popup="Some Other Location",
-    icon=folium.Icon(color="blue", icon='industry' ,prefix='fa'),
+    icon=folium.Icon(color="red", icon='power-off' ,prefix='fa'),
 ).add_to(m)
 
 folium.Marker(
-    location=[n.buses.loc["v2", "x"],n.buses.loc["v2", "y"]],
-    tooltip="Verbraucher 2",
+    location=[n.buses.loc["Elektrolyse", "x"],n.buses.loc["Elektrolyse", "y"]],
+    tooltip="Elektrolyse",
     popup="Some Other Location",
-    icon=folium.Icon(color="blue", icon='industry' ,prefix='fa'),
+    icon=folium.Icon(color="red", icon='power-off' ,prefix='fa'),
 ).add_to(m)
 
 folium.Marker(
-    location=[n.buses.loc["v3", "x"],n.buses.loc["v3", "y"]],
-    tooltip="Verbraucher 3",
+    location=[n.buses.loc["Wasserstoffspeicher", "x"],n.buses.loc["Wasserstoffspeicher", "y"]],
+    tooltip="Wasserstoffspeicher",
     popup="Some Other Location",
-    icon=folium.Icon(color="blue", icon='industry' ,prefix='fa'),
+    icon=folium.Icon(color="red", icon='power-off' ,prefix='fa'),
 ).add_to(m)
 
 folium.Marker(
-    location=[n.buses.loc["v4", "x"],n.buses.loc["v4", "y"]],
-    tooltip="Verbraucher 4",
+    location=[n.buses.loc["Brennstoffzelle", "x"],n.buses.loc["Brennstoffzelle", "y"]],
+    tooltip="Brennstoffzelle",
     popup="Some Other Location",
-    icon=folium.Icon(color="blue", icon='industry' ,prefix='fa'),
+    icon=folium.Icon(color="red", icon='power-off' ,prefix='fa'),
 ).add_to(m)
 
 folium.Marker(
-    location=[n.buses.loc["v5", "x"],n.buses.loc["v5", "y"]],
-    tooltip="Verbraucher 5",
+    location=[n.buses.loc["Ostfassadenmodule", "x"],n.buses.loc["Ostfassadenmodule", "y"]],
+    tooltip="Ostfassadenmodule",
     popup="Some Other Location",
-    icon=folium.Icon(color="blue", icon='industry' ,prefix='fa'),
+    icon=folium.Icon(color="red", icon='power-off' ,prefix='fa'),
 ).add_to(m)
 
 folium.Marker(
-    location=[n.buses.loc["v6", "x"],n.buses.loc["v6", "y"]],
-    tooltip="Verbraucher 6",
+    location=[n.buses.loc["Westfassadenmodule", "x"],n.buses.loc["Westfassadenmodule", "y"]],
+    tooltip="Westfassadenmodule",
     popup="Some Other Location",
-    icon=folium.Icon(color="blue", icon='industry' ,prefix='fa'),
+    icon=folium.Icon(color="red", icon='power-off' ,prefix='fa'),
 ).add_to(m)
 
 folium.Marker(
-    location=[n.buses.loc["v7", "x"],n.buses.loc["v7", "y"]],
-    tooltip="Verbraucher 7",
-    popup="Some Other Location",
+    location=[n.buses.loc["Verbraucher", "x"],n.buses.loc["Verbraucher", "y"]],
+    tooltip="Verbraucher",
+    popup=folium.Popup(max_width=450).add_child(
+        folium.Vega(n.loads_t.p_set["Verbraucher"].to_json(), width=450, height=250)),
     icon=folium.Icon(color="blue", icon='industry' ,prefix='fa'),
 ).add_to(m)
 
-folium.Marker(
-    location=[n.buses.loc["v8", "x"],n.buses.loc["v8", "y"]],
-    tooltip="Verbraucher 8",
-    popup="Some Other Location",
-    icon=folium.Icon(color="blue", icon='industry' ,prefix='fa'),
-).add_to(m)
+coordinates1 = [(52.54423661166265, 11.401563721306982), (52.54409947092294, 11.403008883560785), (52.54568478090785, 11.403451177227943),(52.54583602220148, 11.402000838017184)]  # Beispielkoordinaten für ein Dreieck
+coordinates2 = [(52.54307021878523, 11.397460291332326), (52.54302191301476, 11.398440075264169), (52.54328527727164, 11.398478418081725),(52.54333602957705, 11.397499548504124)]  # Beispielkoordinaten für ein Dreieck
+coordinates3 = [(52.54347319767499, 11.400855672766369),(52.543116966232766, 11.400805632254094),(52.54314089964326, 11.400348147311654),(52.54323178153339, 11.400359471598),(52.54328939232503, 11.399288128168502),(52.543094612680484, 11.399267829029796),(52.543111072965566, 11.39905581580331),(52.54322355141512, 11.399076114942016),(52.54325098513957, 11.398654343948904), (52.543322312742944, 11.398665621248185),(52.54338678182379, 11.397504059423836),(52.543652887238096, 11.397546913161106)]  # Beispielkoordinaten für ein Dreieck
+coordinates4 = [(52.543631082516484, 11.398984313775742), (52.54389890500686, 11.39901748085239), (52.54379872357705, 11.400890691213581),(52.54353176241802, 11.400860322373875)]  # Beispielkoordinaten für ein Dreieck
+
+
+# Polygon erstellen und zur Karte hinzufügen
+polygon = folium.Polygon(locations=coordinates1, color='yellow', fill=True, fill_color='yellow', fill_opacity=0.6)
+polygon.add_to(m)
+polygon2 = folium.Polygon(locations=coordinates2, color='yellow', fill=True, fill_color='yellow', fill_opacity=0.6)
+polygon2.add_to(m)
+polygon3 = folium.Polygon(locations=coordinates3, color='yellow', fill=True, fill_color='yellow', fill_opacity=0.6)
+polygon3.add_to(m)
+polygon4 = folium.Polygon(locations=coordinates4, color='yellow', fill=True, fill_color='yellow', fill_opacity=0.6)
+polygon4.add_to(m)
 
 m
 
-###Dieser Befehl optimiert das Netzwerk (Achtung bei dieser Datengröße dauert die Optimierung -> lieber anderen Ordner "Test" mit Werten für nur einen Tag nutzen)###
-n.optimize()
+#m.save("interaktive_karte.html")
+
+n.storage_units_t.state_of_charge.plot()
+
+n.generators_t.p.plot()
+
+n.generators_t.p["Solar"].plot()
+
+n.loads_t.p_set.plot()
+
+n.objective
 
 gesamtverbrauch = n.loads_t.p.sum().sum()
-eigenverbrauch = n.generators_t.p.sum().sum()-n.generators_t.p["Netv"].sum()
-autarkiegrad = eigenverbrauch / gesamtverbrauch * 100  # In Prozent umrechnen
+eigenverbrauch = 100*gesamtverbrauch/(n.generators_t.p.sum().sum()-n.generators_t.p["Netv"].sum())
+eigenverbrauch
+
+gesamtverbrauch = n.loads_t.p.sum().sum()
+autarkiegrad = n.generators_t.p["Nete"].sum() / gesamtverbrauch * 100
 autarkiegrad
+
+
