@@ -152,4 +152,24 @@ gesamtverbrauch = n.loads_t.p.sum().sum()
 autarkiegrad = n.generators_t.p["Nete"].sum() / gesamtverbrauch * 100
 autarkiegrad
 
+import matplotlib.pyplot as plt
+def my_autopct(pct):
+    return '{:.2f}%'.format(pct) if pct > 5 else ''
+labels = ['Dachsolaranlage', 'Netzeinkauf', 'Ostfassadenmodule', 'Westfassadenmodule', 'Agrisolaranlage']
+v = [n.generators_t.p["Dachsolaranlage"].sum(),n.generators_t.p["Netzeinkauf"].sum(),n.generators_t.p["Ostfassadenmodule"].sum(),n.generators_t.p["Westfassadenmodule"].sum(),n.generators_t.p["Agrisolaranlage"].sum()]
+plt.pie(v, labels=labels, autopct=my_autopct)
+plt.show()
 
+n.generators_t.p.drop(columns='Netv', inplace=True)
+n.generators_t.p.plot()
+plt.xlabel('Zeit')
+plt.ylabel('Leistung in kW')
+plt.title('Erzeugerprofil')
+plt.show()
+
+n.generators_t.p.plot()
+
+plt.xlabel('Zeit')
+plt.ylabel('Leistung in kW')
+plt.title('Erzeugerprofil')
+plt.show()
