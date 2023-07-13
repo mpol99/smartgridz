@@ -3,173 +3,199 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
+#Erstellung des Netzwerks
 n = pypsa.Network()
 
+#Importieren des Ordners in Netzwerk
 n.import_from_csv_folder('test')
 
-#n.loads_t.p_set.plot()
-
-#n.generators_t.p_max_pu.plot()
-
+#Optimierung des Netzwerks mit glpk-Solver
 n.optimize()
 
+##Erstellung einer Karte mit Darstellung der einzelnen Komponenten##
+
 import folium
+
+#Erstellung der Karte mit Koordinatenmittelpunkt, Zoom-Level und Maßstab
 m = folium.Map(location=(52.5443, 11.4036), zoom_start=14, control_scale=True)
 
-import json
-import pandas as pd
-import requests
-
-url = (
-    "https://raw.githubusercontent.com/python-visualization/folium/main/examples/data"
-)
-#vis1 = json.loads("data.json")
-vis2 = json.loads(requests.get(f"{url}/vis2.json").text)
-with open("data.json", "r") as f:
-    vis1 = json.load(f)
-
+#Erstellen je eines Markers für jeden Bus mit Zuordnung der Koordinaten und Erzeugen der Beschriftung
 folium.Marker(
     location=[n.buses.loc["Dachsolaranlage", "x"],n.buses.loc["Dachsolaranlage", "y"]],
-    tooltip="Photovoltaikanlage",
-    popup=n.generators.p_nom["Dachsolaranlage"],
-    icon=folium.Icon(color="green", icon='solar-panel' ,prefix='fa'),
+    tooltip="Dachsolaranlage",
+    popup="Leistung: 4200kWp",
+    icon=folium.Icon(color="lightgreen", icon='solar-panel' ,prefix='fa'),
 ).add_to(m)
-
-trail_coordinates = [
-    (52.54412931110482, 11.402650206775505),
-    (52.54398530204919, 11.402613061973165),
-    (n.buses.loc["Zentralpunkt", "x"],n.buses.loc["Zentralpunkt", "y"]),
-]
-
-folium.PolyLine(trail_coordinates, tooltip="PV-Anschluss").add_to(m)
 
 folium.Marker(
     location=[n.buses.loc["Agrisolaranlage", "x"],n.buses.loc["Agrisolaranlage", "y"]],
-    tooltip="Biogasanlage",
-    popup="Some Other Location",
-    icon=folium.Icon(color="green", icon='seedling' ,prefix='fa'),
+    tooltip="Agrisolaranlage",
+    popup="Leistung: 6882kWp",
+    icon=folium.Icon(color="lightgreen", icon='solar-panel' ,prefix='fa'),
 ).add_to(m)
 
 folium.Marker(
     location=[n.buses.loc["Netzanschluss", "x"],n.buses.loc["Netzanschluss", "y"]],
     tooltip="Netzanschluss",
-    popup="Some Other Location",
-    icon=folium.Icon(color="green", icon='bolt' ,prefix='fa'),
+    popup="Netzbezugs- und Einspeisepunkt",
+    icon=folium.Icon(color="green", icon='plug-circle-bolt' ,prefix='fa'),
 ).add_to(m)
 
 folium.Marker(
     location=[n.buses.loc["Zentralpunkt", "x"],n.buses.loc["Zentralpunkt", "y"]],
     tooltip="Zentralpunkt",
-    popup="Some Other Location",
+    popup="Regelung des Systems",
     icon=folium.Icon(color="red", icon='power-off' ,prefix='fa'),
 ).add_to(m)
 
 folium.Marker(
     location=[n.buses.loc["Stromspeicher", "x"],n.buses.loc["Stromspeicher", "y"]],
     tooltip="Stromspeicher",
-    popup="Some Other Location",
-    icon=folium.Icon(color="red", icon='power-off' ,prefix='fa'),
+    popup="Kapazität: kWh",
+    icon=folium.Icon(color="red", icon='battery-full' ,prefix='fa'),
 ).add_to(m)
 
 folium.Marker(
     location=[n.buses.loc["Elektrolyse", "x"],n.buses.loc["Elektrolyse", "y"]],
     tooltip="Elektrolyse",
-    popup="Some Other Location",
-    icon=folium.Icon(color="red", icon='power-off' ,prefix='fa'),
+    popup="Leistung: 0kWp",
+    icon=folium.Icon(color="lightblue", icon='bolt' ,prefix='fa'),
 ).add_to(m)
 
 folium.Marker(
     location=[n.buses.loc["Wasserstoffspeicher", "x"],n.buses.loc["Wasserstoffspeicher", "y"]],
     tooltip="Wasserstoffspeicher",
-    popup="Some Other Location",
-    icon=folium.Icon(color="red", icon='power-off' ,prefix='fa'),
+    popup="Volumen: 0m³",
+    icon=folium.Icon(color="lightblue", icon='square' ,prefix='fa'),
 ).add_to(m)
 
 folium.Marker(
     location=[n.buses.loc["Brennstoffzelle", "x"],n.buses.loc["Brennstoffzelle", "y"]],
     tooltip="Brennstoffzelle",
-    popup="Some Other Location",
-    icon=folium.Icon(color="red", icon='power-off' ,prefix='fa'),
+    popup="Leistung: 0kWp",
+    icon=folium.Icon(color="lightblue", icon='fire' ,prefix='fa'),
 ).add_to(m)
 
 folium.Marker(
     location=[n.buses.loc["Ostfassadenmodule", "x"],n.buses.loc["Ostfassadenmodule", "y"]],
     tooltip="Ostfassadenmodule",
-    popup="Some Other Location",
-    icon=folium.Icon(color="red", icon='power-off' ,prefix='fa'),
+    popup="Leistung: 400kWp",
+    icon=folium.Icon(color="lightgreen", icon='solar-panel' ,prefix='fa'),
 ).add_to(m)
 
 folium.Marker(
     location=[n.buses.loc["Westfassadenmodule", "x"],n.buses.loc["Westfassadenmodule", "y"]],
     tooltip="Westfassadenmodule",
-    popup="Some Other Location",
-    icon=folium.Icon(color="red", icon='power-off' ,prefix='fa'),
+    popup="Leistung: 400kWp",
+    icon=folium.Icon(color="lightgreen", icon='solar-panel' ,prefix='fa'),
 ).add_to(m)
 
 folium.Marker(
     location=[n.buses.loc["Verbraucher", "x"],n.buses.loc["Verbraucher", "y"]],
     tooltip="Verbraucher",
-    popup=folium.Popup(max_width=450).add_child(
-        folium.Vega(n.loads_t.p_set["Verbraucher"].to_json(), width=450, height=250)),
+    popup="NTN Antriebstechnik",
     icon=folium.Icon(color="blue", icon='industry' ,prefix='fa'),
 ).add_to(m)
 
+#Erzeugen der Flächen für die Darstellung der Dach- und Agrisolaranlagen
 coordinates1 = [(52.54423661166265, 11.401563721306982), (52.54409947092294, 11.403008883560785), (52.54568478090785, 11.403451177227943),(52.54583602220148, 11.402000838017184)]  # Beispielkoordinaten für ein Dreieck
 coordinates2 = [(52.54307021878523, 11.397460291332326), (52.54302191301476, 11.398440075264169), (52.54328527727164, 11.398478418081725),(52.54333602957705, 11.397499548504124)]  # Beispielkoordinaten für ein Dreieck
 coordinates3 = [(52.54347319767499, 11.400855672766369),(52.543116966232766, 11.400805632254094),(52.54314089964326, 11.400348147311654),(52.54323178153339, 11.400359471598),(52.54328939232503, 11.399288128168502),(52.543094612680484, 11.399267829029796),(52.543111072965566, 11.39905581580331),(52.54322355141512, 11.399076114942016),(52.54325098513957, 11.398654343948904), (52.543322312742944, 11.398665621248185),(52.54338678182379, 11.397504059423836),(52.543652887238096, 11.397546913161106)]  # Beispielkoordinaten für ein Dreieck
 coordinates4 = [(52.543631082516484, 11.398984313775742), (52.54389890500686, 11.39901748085239), (52.54379872357705, 11.400890691213581),(52.54353176241802, 11.400860322373875)]  # Beispielkoordinaten für ein Dreieck
+coordinates5 = [(52.544566841661364, 11.393926919662185),(52.54400588835508, 11.40113313806325),(52.55136783009038, 11.402257308133816),(52.551788475176835, 11.39496461511194)]
+
+folium.Polygon(locations=coordinates1, color='yellow', fill=True, fill_color='yellow', fill_opacity=0.6, tooltip="Dachsolaranlage",popup="Leistung: 4200kWp").add_to(m)
+folium.Polygon(locations=coordinates2, color='yellow', fill=True, fill_color='yellow', fill_opacity=0.6, tooltip="Dachsolaranlage",popup="Leistung: 4200kWp").add_to(m)
+folium.Polygon(locations=coordinates3, color='yellow', fill=True, fill_color='yellow', fill_opacity=0.6, tooltip="Dachsolaranlage",popup="Leistung: 4200kWp").add_to(m)
+folium.Polygon(locations=coordinates4, color='yellow', fill=True, fill_color='yellow', fill_opacity=0.6, tooltip="Dachsolaranlage",popup="Leistung: 4200kWp").add_to(m)
+folium.Polygon(locations=coordinates5, color='yellow', fill=True, fill_color='yellow', fill_opacity=0.6, tooltip="Agrisolaranlage",popup="Leistung: 6882kWp").add_to(m)
+
+#Erzeugen der Linien für Darstellung der Ost- und Westfassadensolaranlagen
+trail_coordinateso1 = [(52.5442493760314, 11.401569497833759),(52.545847496163915, 11.401993757302623)]
+trail_coordinateso2 = [(52.54363458189216, 11.398980112186582),(52.54389907038892, 11.399023124566156)]
+trail_coordinateso3 = [(52.54364857455798, 11.397546636200092),(52.543384755628, 11.397505170071732)]
+trail_coordinateso4 = [(52.543066618927114, 11.397460514241189),(52.54333431947556, 11.397498790667369)]
+
+folium.PolyLine(trail_coordinateso1, tooltip="Ostfassadenmodule",popup="Leistung: 400kWp", color='red').add_to(m)
+folium.PolyLine(trail_coordinateso2, tooltip="Ostfassadenmodule",popup="Leistung: 400kWp", color='red').add_to(m)
+folium.PolyLine(trail_coordinateso3, tooltip="Ostfassadenmodule",popup="Leistung: 400kWp", color='red').add_to(m)
+folium.PolyLine(trail_coordinateso4, tooltip="Ostfassadenmodule",popup="Leistung: 400kWp", color='red').add_to(m)
+
+trail_coordinatesw1 = [(52.54568604019387, 11.403453990272872),(52.54409994114029, 11.40300498815645)]
+trail_coordinatesw2 = [(52.54379600209656, 11.40089263378525),(52.54353024420823, 11.400860736763434)]
+trail_coordinatesw3 = [(52.54347398868245, 11.400854357359073),(52.543120935116065, 11.40080970152853)]
+trail_coordinatesw4 = [(52.543018122276266, 11.398442942513126),(52.54328388326517, 11.39847164983276)]
+
+folium.PolyLine(trail_coordinatesw1, tooltip="Westfassadenmodule",popup="Leistung: 400kWp", color='red').add_to(m)
+folium.PolyLine(trail_coordinatesw2, tooltip="Westfassadenmodule",popup="Leistung: 400kWp", color='red').add_to(m)
+folium.PolyLine(trail_coordinatesw3, tooltip="Westfassadenmodule",popup="Leistung: 400kWp", color='red').add_to(m)
+folium.PolyLine(trail_coordinatesw4, tooltip="Westfassadenmodule",popup="Leistung: 400kWp", color='red').add_to(m)
+
+#Erzeugen von Linien für die Darstellung einiger Links
+trail_coordinates = [(n.buses.loc["Zentralpunkt", "x"],n.buses.loc["Zentralpunkt", "y"]),(52.54405397055907, 11.401392204403296),(52.543496100467024, 11.401247365116246),(n.buses.loc["Dachsolaranlage", "x"],n.buses.loc["Dachsolaranlage", "y"])]
+trail_coordinates2 = [(52.54397955213141, 11.40137111085114),(n.buses.loc["Agrisolaranlage", "x"],n.buses.loc["Agrisolaranlage", "y"]),]
+trail_coordinates3 = [(52.5440444974588, 11.401554513312709),(n.buses.loc["Ostfassadenmodule", "x"],n.buses.loc["Ostfassadenmodule", "y"]),]
+trail_coordinates4 = [(52.54399367068741, 11.4021581163495),(n.buses.loc["Verbraucher", "x"],n.buses.loc["Verbraucher", "y"]),]
+trail_coordinates5 = [(52.543927313424554, 11.402956729598998),(n.buses.loc["Westfassadenmodule", "x"],n.buses.loc["Westfassadenmodule", "y"]),]
+trail_coordinates6 = [(52.54394668190377, 11.40135301364581),(52.544464667385796, 11.393864387859464),(n.buses.loc["Netzanschluss", "x"],n.buses.loc["Netzanschluss", "y"]),]
+trail_coordinates7 = [(n.buses.loc["Elektrolyse", "x"],n.buses.loc["Elektrolyse", "y"]),(52.54273644060122, 11.403940809155044),(n.buses.loc["Wasserstoffspeicher", "x"],n.buses.loc["Wasserstoffspeicher", "y"])]
+trail_coordinates8 = [(n.buses.loc["Brennstoffzelle", "x"],n.buses.loc["Brennstoffzelle", "y"]),(52.54263466910644, 11.4049897860253),(n.buses.loc["Wasserstoffspeicher", "x"],n.buses.loc["Wasserstoffspeicher", "y"])]
+trail_coordinates9 = [(n.buses.loc["Brennstoffzelle", "x"],n.buses.loc["Brennstoffzelle", "y"]),(52.54292114264786, 11.40505303637418),(52.542993386976, 11.40409947263847)]
+trail_coordinates10 = [(n.buses.loc["Elektrolyse", "x"],n.buses.loc["Elektrolyse", "y"]),(52.542993386976, 11.40409947263847),(n.buses.loc["Zentralpunkt", "x"],n.buses.loc["Zentralpunkt", "y"])]
+trail_coordinates11 = [(n.buses.loc["Stromspeicher", "x"],n.buses.loc["Stromspeicher", "y"]),(52.54377056008047, 11.404306951030064)]
+
+folium.PolyLine(trail_coordinates, tooltip="Dachsolaranlage-Anschluss").add_to(m)
+folium.PolyLine(trail_coordinates2, tooltip="Agrisolaranlage-Anschluss").add_to(m)
+folium.PolyLine(trail_coordinates3, tooltip="Ostfassadenmodule-Anschluss").add_to(m)
+folium.PolyLine(trail_coordinates4, tooltip="Verbraucher-Anschluss").add_to(m)
+folium.PolyLine(trail_coordinates5, tooltip="Westfassadenmodule-Anschluss").add_to(m)
+folium.PolyLine(trail_coordinates6, tooltip="Netzanschluss").add_to(m)
+folium.PolyLine(trail_coordinates7, tooltip="Wasserstoffspeicherzuleitung", color='lightblue').add_to(m)
+folium.PolyLine(trail_coordinates8, tooltip="Wasserstoffspeicherableitung", color='lightblue').add_to(m)
+folium.PolyLine(trail_coordinates9, tooltip="Brennstoffzellen-Anschluss").add_to(m)
+folium.PolyLine(trail_coordinates10, tooltip="Elektrolyse-Anschluss").add_to(m)
+folium.PolyLine(trail_coordinates11, tooltip="Stromspeicher-Anschluss").add_to(m)
+
+#Erstellen einer interaktiven Karte
+m.save("interaktive_karte.html")
 
 
-# Polygon erstellen und zur Karte hinzufügen
-polygon = folium.Polygon(locations=coordinates1, color='yellow', fill=True, fill_color='yellow', fill_opacity=0.6)
-polygon.add_to(m)
-polygon2 = folium.Polygon(locations=coordinates2, color='yellow', fill=True, fill_color='yellow', fill_opacity=0.6)
-polygon2.add_to(m)
-polygon3 = folium.Polygon(locations=coordinates3, color='yellow', fill=True, fill_color='yellow', fill_opacity=0.6)
-polygon3.add_to(m)
-polygon4 = folium.Polygon(locations=coordinates4, color='yellow', fill=True, fill_color='yellow', fill_opacity=0.6)
-polygon4.add_to(m)
+##Darstellung verschiedener Größen zur Überprüfung der Ausgabedaten
 
-m
-
-#m.save("interaktive_karte.html")
-
-n.storage_units_t.state_of_charge.plot()
-
-n.generators_t.p.plot()
-
-n.generators_t.p["Solar"].plot()
-
+#Plotten der Lastgägnge
 n.loads_t.p_set.plot()
+#Plotten der Erzeugungskurven
+n.generators_t.p_max_pu.plot()
+#Plotten der tatsächlichen Erzeugung
+n.generators_t.p.plot()
+#Plotten der tatsächlichen Erzeugung der Dachsolaranlage
+n.generators_t.p["Dachsolaranlage"].plot()
+#Plotten der Speicherstände
+n.storage_units_t.state_of_charge.plot()
+#Plotten der Leistung der Stromleitungen
+n.links_t.p0.plot()
 
+
+##Erstellen von Berechnungen zur Auswertung des Systems
+
+#Gesamtumsatz-Ergebnis der Optimierung
 n.objective
-
+#Berechnung des Eigenverbrauchs
 gesamtverbrauch = n.loads_t.p.sum().sum()
 eigenverbrauch = 100*gesamtverbrauch/(n.generators_t.p.sum().sum()-n.generators_t.p["Netv"].sum())
-eigenverbrauch
-
+#Berechnung des Autarkiegrades
 gesamtverbrauch = n.loads_t.p.sum().sum()
-autarkiegrad = n.generators_t.p["Nete"].sum() / gesamtverbrauch * 100
-autarkiegrad
+autarkiegrad =100 - n.generators_t.p["Nete"].sum() / gesamtverbrauch * 100
+#Berechnung der Investitionskosten
+investitionskosten=n.storage_units.capital_cost["Stromspeicher"]*n.storage_units.p_nom_opt["Stromspeicher"]+n.generators.capital_cost["Agrisolaranlage"]*n.generators.p_nom_opt["Agrisolaranlage"]+n.generators.capital_cost["Dachsolaranlage"]*n.generators.p_nom_opt["Dachsolaranlage"]+2*n.generators.capital_cost["Ostfassadenmodule"]*n.generators.p_nom_opt["Ostfassadenmodule"]
+#Berechnung der Stromkosten
+stromkosten=n.generators_t.p.sum()["Netzeinkauf"]*n.generators.marginal_cost["Netzeinkauf"]
 
+##Erstellung von Diagrammen zur Darstellung der Zusammensetzung des verbrauchten Stroms
 import matplotlib.pyplot as plt
 def my_autopct(pct):
     return '{:.2f}%'.format(pct) if pct > 5 else ''
 labels = ['Dachsolaranlage', 'Netzeinkauf', 'Ostfassadenmodule', 'Westfassadenmodule', 'Agrisolaranlage']
 v = [n.generators_t.p["Dachsolaranlage"].sum(),n.generators_t.p["Netzeinkauf"].sum(),n.generators_t.p["Ostfassadenmodule"].sum(),n.generators_t.p["Westfassadenmodule"].sum(),n.generators_t.p["Agrisolaranlage"].sum()]
 plt.pie(v, labels=labels, autopct=my_autopct)
-plt.show()
-
-n.generators_t.p.drop(columns='Netv', inplace=True)
-n.generators_t.p.plot()
-plt.xlabel('Zeit')
-plt.ylabel('Leistung in kW')
-plt.title('Erzeugerprofil')
-plt.show()
-
-n.generators_t.p.plot()
-
-plt.xlabel('Zeit')
-plt.ylabel('Leistung in kW')
-plt.title('Erzeugerprofil')
 plt.show()
