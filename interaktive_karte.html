@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_e32ec395bf91cde98e01909366e49cd7 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_e32ec395bf91cde98e01909366e49cd7" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_e32ec395bf91cde98e01909366e49cd7 = L.map(
+                "map_e32ec395bf91cde98e01909366e49cd7",
+                {
+                    center: [52.5443, 11.4036],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 14,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+            L.control.scale().addTo(map_e32ec395bf91cde98e01909366e49cd7);
+
+            
+
+        
+    
+            var tile_layer_985abaf1a33a9e4f9466480c93e9da73 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_e32ec395bf91cde98e01909366e49cd7);
+        
+    
+            var marker_fae09b276ca0467e45c7d39a88b8dbcb = L.marker(
+                [52.5436, 11.399],
+                {}
+            ).addTo(map_e32ec395bf91cde98e01909366e49cd7);
+        
+    
+            var icon_56fb04aa4996a730ddea6abfca4326ad = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "solar-panel", "iconColor": "white", "markerColor": "lightgreen", "prefix": "fa"}
+            );
+            marker_fae09b276ca0467e45c7d39a88b8dbcb.setIcon(icon_56fb04aa4996a730ddea6abfca4326ad);
+        
+    
+        var popup_f03d5a2fd8e47859b5f557722b703b63 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_797d51c8c99e87cf50cc8fa5e3094ac2 = $(`<div id="html_797d51c8c99e87cf50cc8fa5e3094ac2" style="width: 100.0%; height: 100.0%;">Leistung: 4200kWp</div>`)[0];
+                popup_f03d5a2fd8e47859b5f557722b703b63.setContent(html_797d51c8c99e87cf50cc8fa5e3094ac2);
+            
+        
+
+        marker_fae09b276ca0467e45c7d39a88b8dbcb.bindPopup(popup_f03d5a2fd8e47859b5f557722b703b63)
+        ;
+
+        
+    
+    
+            marker_fae09b276ca0467e45c7d39a88b8dbcb.bindTooltip(
+                `<div>
+                     Dachsolaranlage
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5be5b9c9da6661ef03e219938749a2a7 = L.marker(
+                [52.544, 11.4011],
+                {}
+            ).addTo(map_e32ec395bf91cde98e01909366e49cd7);
+        
+    
+            var icon_0da8f240df5e34518c3f315bad9718ad = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "solar-panel", "iconColor": "white", "markerColor": "lightgreen", "prefix": "fa"}
+            );
+            marker_5be5b9c9da6661ef03e219938749a2a7.setIcon(icon_0da8f240df5e34518c3f315bad9718ad);
+        
+    
+        var popup_d37635001dd15923234c291a69fc39f3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_fae97fb604ab0893959b0b13b282d5ee = $(`<div id="html_fae97fb604ab0893959b0b13b282d5ee" style="width: 100.0%; height: 100.0%;">Leistung: 6882kWp</div>`)[0];
+                popup_d37635001dd15923234c291a69fc39f3.setContent(html_fae97fb604ab0893959b0b13b282d5ee);
+            
+        
+
+        marker_5be5b9c9da6661ef03e219938749a2a7.bindPopup(popup_d37635001dd15923234c291a69fc39f3)
+        ;
+
+        
+    
+    
+            marker_5be5b9c9da6661ef03e219938749a2a7.bindTooltip(
+                `<div>
+                     Agrisolaranlage
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4b969aae98844429696b7e64fcb0b7d6 = L.marker(
+                [52.5417, 11.3936],
+                {}
+            ).addTo(map_e32ec395bf91cde98e01909366e49cd7);
+        
+    
+            var icon_28e60648c7ebaabaaf2a619881071892 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "plug-circle-bolt", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_4b969aae98844429696b7e64fcb0b7d6.setIcon(icon_28e60648c7ebaabaaf2a619881071892);
+        
+    
+        var popup_1d886d0d36da3a2d9e272f5851870f8b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ff07dceb7c5f9d91e2f0de1e66ef58e4 = $(`<div id="html_ff07dceb7c5f9d91e2f0de1e66ef58e4" style="width: 100.0%; height: 100.0%;">Netzbezugs- und Einspeisepunkt</div>`)[0];
+                popup_1d886d0d36da3a2d9e272f5851870f8b.setContent(html_ff07dceb7c5f9d91e2f0de1e66ef58e4);
+            
+        
+
+        marker_4b969aae98844429696b7e64fcb0b7d6.bindPopup(popup_1d886d0d36da3a2d9e272f5851870f8b)
+        ;
+
+        
+    
+    
+            marker_4b969aae98844429696b7e64fcb0b7d6.bindTooltip(
+                `<div>
+                     Netzanschluss
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_73e0ab99c67e688ddf6e4a806f5f9246 = L.marker(
+                [52.5438, 11.4043],
+                {}
+            ).addTo(map_e32ec395bf91cde98e01909366e49cd7);
+        
+    
+            var icon_60216c5925d9baa039fc3abad3f0c55c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "power-off", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_73e0ab99c67e688ddf6e4a806f5f9246.setIcon(icon_60216c5925d9baa039fc3abad3f0c55c);
+        
+    
+        var popup_e1b3911f87cee5b8516892b1aa46b297 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f6252225705d3ec90c7d0f606a4b600e = $(`<div id="html_f6252225705d3ec90c7d0f606a4b600e" style="width: 100.0%; height: 100.0%;">Regelung des Systems</div>`)[0];
+                popup_e1b3911f87cee5b8516892b1aa46b297.setContent(html_f6252225705d3ec90c7d0f606a4b600e);
+            
+        
+
+        marker_73e0ab99c67e688ddf6e4a806f5f9246.bindPopup(popup_e1b3911f87cee5b8516892b1aa46b297)
+        ;
+
+        
+    
+    
+            marker_73e0ab99c67e688ddf6e4a806f5f9246.bindTooltip(
+                `<div>
+                     Zentralpunkt
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5e72994d849a3b103a436584b7702315 = L.marker(
+                [52.5437, 11.4052],
+                {}
+            ).addTo(map_e32ec395bf91cde98e01909366e49cd7);
+        
+    
+            var icon_77e128636a25e79b3a08afd4e7a4ce8d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "battery-full", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_5e72994d849a3b103a436584b7702315.setIcon(icon_77e128636a25e79b3a08afd4e7a4ce8d);
+        
+    
+        var popup_cd6e4ba3a6f6e2085a09690f3bd60de6 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_cfeab02a73fa2639427b16d710bd41ac = $(`<div id="html_cfeab02a73fa2639427b16d710bd41ac" style="width: 100.0%; height: 100.0%;">Kapazität: kWh</div>`)[0];
+                popup_cd6e4ba3a6f6e2085a09690f3bd60de6.setContent(html_cfeab02a73fa2639427b16d710bd41ac);
+            
+        
+
+        marker_5e72994d849a3b103a436584b7702315.bindPopup(popup_cd6e4ba3a6f6e2085a09690f3bd60de6)
+        ;
+
+        
+    
+    
+            marker_5e72994d849a3b103a436584b7702315.bindTooltip(
+                `<div>
+                     Stromspeicher
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b02df519a214c48d8749981f2e40a473 = L.marker(
+                [52.543, 11.404],
+                {}
+            ).addTo(map_e32ec395bf91cde98e01909366e49cd7);
+        
+    
+            var icon_112384e02282bbb01e0805f4f30930f8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "bolt", "iconColor": "white", "markerColor": "lightblue", "prefix": "fa"}
+            );
+            marker_b02df519a214c48d8749981f2e40a473.setIcon(icon_112384e02282bbb01e0805f4f30930f8);
+        
+    
+        var popup_93fdae3c686d66cd40a9b7d3aa426d7a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_101d1cb1db4ab913fb646ae480c3fd3c = $(`<div id="html_101d1cb1db4ab913fb646ae480c3fd3c" style="width: 100.0%; height: 100.0%;">Leistung: 0kWp</div>`)[0];
+                popup_93fdae3c686d66cd40a9b7d3aa426d7a.setContent(html_101d1cb1db4ab913fb646ae480c3fd3c);
+            
+        
+
+        marker_b02df519a214c48d8749981f2e40a473.bindPopup(popup_93fdae3c686d66cd40a9b7d3aa426d7a)
+        ;
+
+        
+    
+    
+            marker_b02df519a214c48d8749981f2e40a473.bindTooltip(
+                `<div>
+                     Elektrolyse
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b965ca42f29cddfd3719dea2cfe0574a = L.marker(
+                [52.5427, 11.4043],
+                {}
+            ).addTo(map_e32ec395bf91cde98e01909366e49cd7);
+        
+    
+            var icon_1e78f96c502060cf8e1f8fda8e6c8852 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "square", "iconColor": "white", "markerColor": "lightblue", "prefix": "fa"}
+            );
+            marker_b965ca42f29cddfd3719dea2cfe0574a.setIcon(icon_1e78f96c502060cf8e1f8fda8e6c8852);
+        
+    
+        var popup_586c396912df33bcd24eb5aa6ea2c5ef = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5b9c88dbc2437e6f4ddff4c0e5ce1489 = $(`<div id="html_5b9c88dbc2437e6f4ddff4c0e5ce1489" style="width: 100.0%; height: 100.0%;">Volumen: 0m³</div>`)[0];
+                popup_586c396912df33bcd24eb5aa6ea2c5ef.setContent(html_5b9c88dbc2437e6f4ddff4c0e5ce1489);
+            
+        
+
+        marker_b965ca42f29cddfd3719dea2cfe0574a.bindPopup(popup_586c396912df33bcd24eb5aa6ea2c5ef)
+        ;
+
+        
+    
+    
+            marker_b965ca42f29cddfd3719dea2cfe0574a.bindTooltip(
+                `<div>
+                     Wasserstoffspeicher
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c3b0d5318953a62fec4575735102fa7b = L.marker(
+                [52.5427, 11.405],
+                {}
+            ).addTo(map_e32ec395bf91cde98e01909366e49cd7);
+        
+    
+            var icon_685992ef106dc1d2ffe14a613a989091 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fire", "iconColor": "white", "markerColor": "lightblue", "prefix": "fa"}
+            );
+            marker_c3b0d5318953a62fec4575735102fa7b.setIcon(icon_685992ef106dc1d2ffe14a613a989091);
+        
+    
+        var popup_e1c14e14ceffaba45ba9f0dfa1188ddc = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_31e1049c7082babc64019887668082fa = $(`<div id="html_31e1049c7082babc64019887668082fa" style="width: 100.0%; height: 100.0%;">Leistung: 0kWp</div>`)[0];
+                popup_e1c14e14ceffaba45ba9f0dfa1188ddc.setContent(html_31e1049c7082babc64019887668082fa);
+            
+        
+
+        marker_c3b0d5318953a62fec4575735102fa7b.bindPopup(popup_e1c14e14ceffaba45ba9f0dfa1188ddc)
+        ;
+
+        
+    
+    
+            marker_c3b0d5318953a62fec4575735102fa7b.bindTooltip(
+                `<div>
+                     Brennstoffzelle
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ccdca61bf2037e8b4091ecafa87fcde4 = L.marker(
+                [52.5442, 11.4016],
+                {}
+            ).addTo(map_e32ec395bf91cde98e01909366e49cd7);
+        
+    
+            var icon_90965370d1e64c32b7da1a371c5221ac = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "solar-panel", "iconColor": "white", "markerColor": "lightgreen", "prefix": "fa"}
+            );
+            marker_ccdca61bf2037e8b4091ecafa87fcde4.setIcon(icon_90965370d1e64c32b7da1a371c5221ac);
+        
+    
+        var popup_2e84aed8315ef3b40026551fd5e3f0e9 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3c8dea0cf57a259877b4277e9ea95471 = $(`<div id="html_3c8dea0cf57a259877b4277e9ea95471" style="width: 100.0%; height: 100.0%;">Leistung: 400kWp</div>`)[0];
+                popup_2e84aed8315ef3b40026551fd5e3f0e9.setContent(html_3c8dea0cf57a259877b4277e9ea95471);
+            
+        
+
+        marker_ccdca61bf2037e8b4091ecafa87fcde4.bindPopup(popup_2e84aed8315ef3b40026551fd5e3f0e9)
+        ;
+
+        
+    
+    
+            marker_ccdca61bf2037e8b4091ecafa87fcde4.bindTooltip(
+                `<div>
+                     Ostfassadenmodule
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_70aef4304e4b1a007a82440969aaadc5 = L.marker(
+                [52.5441, 11.403],
+                {}
+            ).addTo(map_e32ec395bf91cde98e01909366e49cd7);
+        
+    
+            var icon_54b64e01af277284be1efee3bd351865 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "solar-panel", "iconColor": "white", "markerColor": "lightgreen", "prefix": "fa"}
+            );
+            marker_70aef4304e4b1a007a82440969aaadc5.setIcon(icon_54b64e01af277284be1efee3bd351865);
+        
+    
+        var popup_7cd4a14d695c58e01736cbf6ff0b235d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_0fb08ed52ceaccbb185304784d750897 = $(`<div id="html_0fb08ed52ceaccbb185304784d750897" style="width: 100.0%; height: 100.0%;">Leistung: 400kWp</div>`)[0];
+                popup_7cd4a14d695c58e01736cbf6ff0b235d.setContent(html_0fb08ed52ceaccbb185304784d750897);
+            
+        
+
+        marker_70aef4304e4b1a007a82440969aaadc5.bindPopup(popup_7cd4a14d695c58e01736cbf6ff0b235d)
+        ;
+
+        
+    
+    
+            marker_70aef4304e4b1a007a82440969aaadc5.bindTooltip(
+                `<div>
+                     Westfassadenmodule
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_821b5a7e20c0e910cc7cf4ccdd12eca1 = L.marker(
+                [52.5442, 11.4022],
+                {}
+            ).addTo(map_e32ec395bf91cde98e01909366e49cd7);
+        
+    
+            var icon_69cbd8c21eeb7c93b0829e02791432e2 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "industry", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_821b5a7e20c0e910cc7cf4ccdd12eca1.setIcon(icon_69cbd8c21eeb7c93b0829e02791432e2);
+        
+    
+        var popup_6a659f650aedfc8d1b81ea9c64d90b8e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_01e76d7af196feb63e4d19469bf1d5c4 = $(`<div id="html_01e76d7af196feb63e4d19469bf1d5c4" style="width: 100.0%; height: 100.0%;">NTN Antriebstechnik</div>`)[0];
+                popup_6a659f650aedfc8d1b81ea9c64d90b8e.setContent(html_01e76d7af196feb63e4d19469bf1d5c4);
+            
+        
+
+        marker_821b5a7e20c0e910cc7cf4ccdd12eca1.bindPopup(popup_6a659f650aedfc8d1b81ea9c64d90b8e)
+        ;
+
+        
+    
+    
+            marker_821b5a7e20c0e910cc7cf4ccdd12eca1.bindTooltip(
+                `<div>
+                     Verbraucher
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var polygon_ca6611f90c16f9cdbc734532777ee83c = L.polygon(
+                [[52.54423661166265, 11.401563721306982], [52.54409947092294, 11.403008883560785], [52.54568478090785, 11.403451177227943], [52.54583602220148, 11.402000838017184]],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_e32ec395bf91cde98e01909366e49cd7);
+        
+    
+        var popup_9441718d723dcaa34dfdcdc945b8056a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9e6ed05fd5de252f878c37e7d6edeb51 = $(`<div id="html_9e6ed05fd5de252f878c37e7d6edeb51" style="width: 100.0%; height: 100.0%;">Leistung: 4200kWp</div>`)[0];
+                popup_9441718d723dcaa34dfdcdc945b8056a.setContent(html_9e6ed05fd5de252f878c37e7d6edeb51);
+            
+        
+
+        polygon_ca6611f90c16f9cdbc734532777ee83c.bindPopup(popup_9441718d723dcaa34dfdcdc945b8056a)
+        ;
+
+        
+    
+    
+            polygon_ca6611f90c16f9cdbc734532777ee83c.bindTooltip(
+                `<div>
+                     Dachsolaranlage
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var polygon_03c54a378818e53060cec5b2116eeab8 = L.polygon(
+                [[52.54307021878523, 11.397460291332326], [52.54302191301476, 11.398440075264169], [52.54328527727164, 11.398478418081725], [52.54333602957705, 11.397499548504124]],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_e32ec395bf91cde98e01909366e49cd7);
+        
+    
+        var popup_6b94a650df1aa6be463dbd8f55393e78 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f13c25e299f85b5d6a03fcf5a9ba760a = $(`<div id="html_f13c25e299f85b5d6a03fcf5a9ba760a" style="width: 100.0%; height: 100.0%;">Leistung: 4200kWp</div>`)[0];
+                popup_6b94a650df1aa6be463dbd8f55393e78.setContent(html_f13c25e299f85b5d6a03fcf5a9ba760a);
+            
+        
+
+        polygon_03c54a378818e53060cec5b2116eeab8.bindPopup(popup_6b94a650df1aa6be463dbd8f55393e78)
+        ;
+
+        
+    
+    
+            polygon_03c54a378818e53060cec5b2116eeab8.bindTooltip(
+                `<div>
+                     Dachsolaranlage
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var polygon_66970bbd3d5c4e8a1e2d0ad0951ab2d7 = L.polygon(
+                [[52.54347319767499, 11.400855672766369], [52.543116966232766, 11.400805632254094], [52.54314089964326, 11.400348147311654], [52.54323178153339, 11.400359471598], [52.54328939232503, 11.399288128168502], [52.543094612680484, 11.399267829029796], [52.543111072965566, 11.39905581580331], [52.54322355141512, 11.399076114942016], [52.54325098513957, 11.398654343948904], [52.543322312742944, 11.398665621248185], [52.54338678182379, 11.397504059423836], [52.543652887238096, 11.397546913161106]],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_e32ec395bf91cde98e01909366e49cd7);
+        
+    
+        var popup_38d151c48d32b03b8ab74170257a61c9 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_230106bbda4bf80e2ab3c19c9e1a09af = $(`<div id="html_230106bbda4bf80e2ab3c19c9e1a09af" style="width: 100.0%; height: 100.0%;">Leistung: 4200kWp</div>`)[0];
+                popup_38d151c48d32b03b8ab74170257a61c9.setContent(html_230106bbda4bf80e2ab3c19c9e1a09af);
+            
+        
+
+        polygon_66970bbd3d5c4e8a1e2d0ad0951ab2d7.bindPopup(popup_38d151c48d32b03b8ab74170257a61c9)
+        ;
+
+        
+    
+    
+            polygon_66970bbd3d5c4e8a1e2d0ad0951ab2d7.bindTooltip(
+                `<div>
+                     Dachsolaranlage
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var polygon_7a2313731827f2333b21a14bf024f93e = L.polygon(
+                [[52.543631082516484, 11.398984313775742], [52.54389890500686, 11.39901748085239], [52.54379872357705, 11.400890691213581], [52.54353176241802, 11.400860322373875]],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_e32ec395bf91cde98e01909366e49cd7);
+        
+    
+        var popup_f97964544b0304d389b571f811549d05 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ca601ed2b4e26e39962c724831343321 = $(`<div id="html_ca601ed2b4e26e39962c724831343321" style="width: 100.0%; height: 100.0%;">Leistung: 4200kWp</div>`)[0];
+                popup_f97964544b0304d389b571f811549d05.setContent(html_ca601ed2b4e26e39962c724831343321);
+            
+        
+
+        polygon_7a2313731827f2333b21a14bf024f93e.bindPopup(popup_f97964544b0304d389b571f811549d05)
+        ;
+
+        
+    
+    
+            polygon_7a2313731827f2333b21a14bf024f93e.bindTooltip(
+                `<div>
+                     Dachsolaranlage
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var polygon_aaf771696c03bdde76ee849c60d4e272 = L.polygon(
+                [[52.544566841661364, 11.393926919662185], [52.54400588835508, 11.40113313806325], [52.55136783009038, 11.402257308133816], [52.551788475176835, 11.39496461511194]],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_e32ec395bf91cde98e01909366e49cd7);
+        
+    
+        var popup_690e49d57bf0baf8e057cbc48ef508f4 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_708d0fd0b22a85f0ef000d2025921c9b = $(`<div id="html_708d0fd0b22a85f0ef000d2025921c9b" style="width: 100.0%; height: 100.0%;">Leistung: 6882kWp</div>`)[0];
+                popup_690e49d57bf0baf8e057cbc48ef508f4.setContent(html_708d0fd0b22a85f0ef000d2025921c9b);
+            
+        
+
+        polygon_aaf771696c03bdde76ee849c60d4e272.bindPopup(popup_690e49d57bf0baf8e057cbc48ef508f4)
+        ;
+
+        
+    
+    
+            polygon_aaf771696c03bdde76ee849c60d4e272.bindTooltip(
+                `<div>
+                     Agrisolaranlage
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_53f746c0492b726e84e0757825b7d53f = L.polyline(
+                [[52.5442493760314, 11.401569497833759], [52.545847496163915, 11.401993757302623]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_e32ec395bf91cde98e01909366e49cd7);
+        
+    
+        var popup_2f372103b9991548ca4bc521e2d85812 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4c780f5fcd2971911bd9d51eab3deb08 = $(`<div id="html_4c780f5fcd2971911bd9d51eab3deb08" style="width: 100.0%; height: 100.0%;">Leistung: 400kWp</div>`)[0];
+                popup_2f372103b9991548ca4bc521e2d85812.setContent(html_4c780f5fcd2971911bd9d51eab3deb08);
+            
+        
+
+        poly_line_53f746c0492b726e84e0757825b7d53f.bindPopup(popup_2f372103b9991548ca4bc521e2d85812)
+        ;
+
+        
+    
+    
+            poly_line_53f746c0492b726e84e0757825b7d53f.bindTooltip(
+                `<div>
+                     Ostfassadenmodule
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_2ac8972b0e69085002ff64b2734fe57a = L.polyline(
+                [[52.54363458189216, 11.398980112186582], [52.54389907038892, 11.399023124566156]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_e32ec395bf91cde98e01909366e49cd7);
+        
+    
+        var popup_ef324d5bfe38d96d9be72c239c1d66fe = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_05dc74bd301703d8515e65f9a4cc0f99 = $(`<div id="html_05dc74bd301703d8515e65f9a4cc0f99" style="width: 100.0%; height: 100.0%;">Leistung: 400kWp</div>`)[0];
+                popup_ef324d5bfe38d96d9be72c239c1d66fe.setContent(html_05dc74bd301703d8515e65f9a4cc0f99);
+            
+        
+
+        poly_line_2ac8972b0e69085002ff64b2734fe57a.bindPopup(popup_ef324d5bfe38d96d9be72c239c1d66fe)
+        ;
+
+        
+    
+    
+            poly_line_2ac8972b0e69085002ff64b2734fe57a.bindTooltip(
+                `<div>
+                     Ostfassadenmodule
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_e8fa632bad9710d7ddb00e5a836b08f0 = L.polyline(
+                [[52.54364857455798, 11.397546636200092], [52.543384755628, 11.397505170071732]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_e32ec395bf91cde98e01909366e49cd7);
+        
+    
+        var popup_57f777f9f75ad5f190010c1ca3d940f9 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_80ae00f17ac2c580a805c82147099a73 = $(`<div id="html_80ae00f17ac2c580a805c82147099a73" style="width: 100.0%; height: 100.0%;">Leistung: 400kWp</div>`)[0];
+                popup_57f777f9f75ad5f190010c1ca3d940f9.setContent(html_80ae00f17ac2c580a805c82147099a73);
+            
+        
+
+        poly_line_e8fa632bad9710d7ddb00e5a836b08f0.bindPopup(popup_57f777f9f75ad5f190010c1ca3d940f9)
+        ;
+
+        
+    
+    
+            poly_line_e8fa632bad9710d7ddb00e5a836b08f0.bindTooltip(
+                `<div>
+                     Ostfassadenmodule
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_53fe2c98e6a281548f8dc8da50c4d035 = L.polyline(
+                [[52.543066618927114, 11.397460514241189], [52.54333431947556, 11.397498790667369]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_e32ec395bf91cde98e01909366e49cd7);
+        
+    
+        var popup_781480553679bf855f76a69e59f817d5 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_98a111545b15bc00d1ef86b661b852fb = $(`<div id="html_98a111545b15bc00d1ef86b661b852fb" style="width: 100.0%; height: 100.0%;">Leistung: 400kWp</div>`)[0];
+                popup_781480553679bf855f76a69e59f817d5.setContent(html_98a111545b15bc00d1ef86b661b852fb);
+            
+        
+
+        poly_line_53fe2c98e6a281548f8dc8da50c4d035.bindPopup(popup_781480553679bf855f76a69e59f817d5)
+        ;
+
+        
+    
+    
+            poly_line_53fe2c98e6a281548f8dc8da50c4d035.bindTooltip(
+                `<div>
+                     Ostfassadenmodule
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_1b2d4a2b62f60a32c76fc2aba8335716 = L.polyline(
+                [[52.54568604019387, 11.403453990272872], [52.54409994114029, 11.40300498815645]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_e32ec395bf91cde98e01909366e49cd7);
+        
+    
+        var popup_9ee857e89e85014a7d4f100b3e417da4 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_6797327b315032df8b3130b91e13d11b = $(`<div id="html_6797327b315032df8b3130b91e13d11b" style="width: 100.0%; height: 100.0%;">Leistung: 400kWp</div>`)[0];
+                popup_9ee857e89e85014a7d4f100b3e417da4.setContent(html_6797327b315032df8b3130b91e13d11b);
+            
+        
+
+        poly_line_1b2d4a2b62f60a32c76fc2aba8335716.bindPopup(popup_9ee857e89e85014a7d4f100b3e417da4)
+        ;
+
+        
+    
+    
+            poly_line_1b2d4a2b62f60a32c76fc2aba8335716.bindTooltip(
+                `<div>
+                     Westfassadenmodule
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_2cbe9956e1383eae68bee329ebc760c6 = L.polyline(
+                [[52.54379600209656, 11.40089263378525], [52.54353024420823, 11.400860736763434]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_e32ec395bf91cde98e01909366e49cd7);
+        
+    
+        var popup_b52aa5aa39f3a37c890618c5c2db10cd = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_1e9f86b61c564e95105e91701680f45b = $(`<div id="html_1e9f86b61c564e95105e91701680f45b" style="width: 100.0%; height: 100.0%;">Leistung: 400kWp</div>`)[0];
+                popup_b52aa5aa39f3a37c890618c5c2db10cd.setContent(html_1e9f86b61c564e95105e91701680f45b);
+            
+        
+
+        poly_line_2cbe9956e1383eae68bee329ebc760c6.bindPopup(popup_b52aa5aa39f3a37c890618c5c2db10cd)
+        ;
+
+        
+    
+    
+            poly_line_2cbe9956e1383eae68bee329ebc760c6.bindTooltip(
+                `<div>
+                     Westfassadenmodule
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_fe3a630b59e1c4e806da217baa4eb048 = L.polyline(
+                [[52.54347398868245, 11.400854357359073], [52.543120935116065, 11.40080970152853]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_e32ec395bf91cde98e01909366e49cd7);
+        
+    
+        var popup_9ddef67304ed132fe5aeed6356a20d7d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3a72cfbde2bf2937af43368aee19b501 = $(`<div id="html_3a72cfbde2bf2937af43368aee19b501" style="width: 100.0%; height: 100.0%;">Leistung: 400kWp</div>`)[0];
+                popup_9ddef67304ed132fe5aeed6356a20d7d.setContent(html_3a72cfbde2bf2937af43368aee19b501);
+            
+        
+
+        poly_line_fe3a630b59e1c4e806da217baa4eb048.bindPopup(popup_9ddef67304ed132fe5aeed6356a20d7d)
+        ;
+
+        
+    
+    
+            poly_line_fe3a630b59e1c4e806da217baa4eb048.bindTooltip(
+                `<div>
+                     Westfassadenmodule
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_2e1721e7a25bbc6a040d54290c8c18ff = L.polyline(
+                [[52.543018122276266, 11.398442942513126], [52.54328388326517, 11.39847164983276]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_e32ec395bf91cde98e01909366e49cd7);
+        
+    
+        var popup_2dfc3c31bb43722b8485e97974479a7a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_230c14ddaf06c69ef26468897764a7fb = $(`<div id="html_230c14ddaf06c69ef26468897764a7fb" style="width: 100.0%; height: 100.0%;">Leistung: 400kWp</div>`)[0];
+                popup_2dfc3c31bb43722b8485e97974479a7a.setContent(html_230c14ddaf06c69ef26468897764a7fb);
+            
+        
+
+        poly_line_2e1721e7a25bbc6a040d54290c8c18ff.bindPopup(popup_2dfc3c31bb43722b8485e97974479a7a)
+        ;
+
+        
+    
+    
+            poly_line_2e1721e7a25bbc6a040d54290c8c18ff.bindTooltip(
+                `<div>
+                     Westfassadenmodule
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_b6950e708b9b2c9dd494142e1b3ac751 = L.polyline(
+                [[52.5438, 11.4043], [52.54405397055907, 11.401392204403296], [52.543496100467024, 11.401247365116246], [52.5436, 11.399]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_e32ec395bf91cde98e01909366e49cd7);
+        
+    
+            poly_line_b6950e708b9b2c9dd494142e1b3ac751.bindTooltip(
+                `<div>
+                     Dachsolaranlage-Anschluss
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_87001788190bad974adeedc2dcdf87da = L.polyline(
+                [[52.54397955213141, 11.40137111085114], [52.544, 11.4011]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_e32ec395bf91cde98e01909366e49cd7);
+        
+    
+            poly_line_87001788190bad974adeedc2dcdf87da.bindTooltip(
+                `<div>
+                     Agrisolaranlage-Anschluss
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_cdf80aaf7da377ad07d5983814f1b52b = L.polyline(
+                [[52.5440444974588, 11.401554513312709], [52.5442, 11.4016]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_e32ec395bf91cde98e01909366e49cd7);
+        
+    
+            poly_line_cdf80aaf7da377ad07d5983814f1b52b.bindTooltip(
+                `<div>
+                     Ostfassadenmodule-Anschluss
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_0838ec63bf094f214fe1c043fa4209bc = L.polyline(
+                [[52.54399367068741, 11.4021581163495], [52.5442, 11.4022]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_e32ec395bf91cde98e01909366e49cd7);
+        
+    
+            poly_line_0838ec63bf094f214fe1c043fa4209bc.bindTooltip(
+                `<div>
+                     OVerbraucher-Anschluss
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_5a8862bf46eaa1e9ab62d21a74e8ac5e = L.polyline(
+                [[52.543927313424554, 11.402956729598998], [52.5441, 11.403]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_e32ec395bf91cde98e01909366e49cd7);
+        
+    
+            poly_line_5a8862bf46eaa1e9ab62d21a74e8ac5e.bindTooltip(
+                `<div>
+                     Westfassadenmodule-Anschluss
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_5265e57f0f72578b17312d87b835e776 = L.polyline(
+                [[52.54394668190377, 11.40135301364581], [52.544464667385796, 11.393864387859464], [52.5417, 11.3936]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_e32ec395bf91cde98e01909366e49cd7);
+        
+    
+            poly_line_5265e57f0f72578b17312d87b835e776.bindTooltip(
+                `<div>
+                     Netzanschluss
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_293c85cef6c84fecc331c1dd995b589d = L.polyline(
+                [[52.543, 11.404], [52.54273644060122, 11.403940809155044], [52.5427, 11.4043]],
+                {"bubblingMouseEvents": true, "color": "lightblue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "lightblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_e32ec395bf91cde98e01909366e49cd7);
+        
+    
+            poly_line_293c85cef6c84fecc331c1dd995b589d.bindTooltip(
+                `<div>
+                     Wasserstoffspeicherzuleitung
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_15c829bd417e6fd4ac1dd92ecc752ea6 = L.polyline(
+                [[52.5427, 11.405], [52.54263466910644, 11.4049897860253], [52.5427, 11.4043]],
+                {"bubblingMouseEvents": true, "color": "lightblue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "lightblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_e32ec395bf91cde98e01909366e49cd7);
+        
+    
+            poly_line_15c829bd417e6fd4ac1dd92ecc752ea6.bindTooltip(
+                `<div>
+                     Wasserstoffspeicherableitung
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_cd0aacaf05fc1bafce02ba08e8c2c9a7 = L.polyline(
+                [[52.5427, 11.405], [52.54292114264786, 11.40505303637418], [52.542993386976, 11.40409947263847]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_e32ec395bf91cde98e01909366e49cd7);
+        
+    
+            poly_line_cd0aacaf05fc1bafce02ba08e8c2c9a7.bindTooltip(
+                `<div>
+                     Brennstoffzellen-Anschluss
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_bde63128397f0782e09e34951218102f = L.polyline(
+                [[52.543, 11.404], [52.542993386976, 11.40409947263847], [52.5438, 11.4043]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_e32ec395bf91cde98e01909366e49cd7);
+        
+    
+            poly_line_bde63128397f0782e09e34951218102f.bindTooltip(
+                `<div>
+                     Elektrolyse-Anschluss
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_8c113dce1fd1942ba6b6a5ee09bf8d3e = L.polyline(
+                [[52.5437, 11.4052], [52.54377056008047, 11.404306951030064]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_e32ec395bf91cde98e01909366e49cd7);
+        
+    
+            poly_line_8c113dce1fd1942ba6b6a5ee09bf8d3e.bindTooltip(
+                `<div>
+                     Stromspeicher-Anschluss
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
+</html>
